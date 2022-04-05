@@ -7,7 +7,7 @@ def sign_up():  # Yeni kullanıcıyı data dosyasına ekler.
     usr = input("Please enter your username:")
     psw = input("Please enter your password:")
 
-    with open('readme.txt', 'a+') as f:
+    with open('Database.txt', 'a+') as f:
         f.write("Username: %s\n" % usr)
         f.write(usr + "'s Password: %s" % hashlib.sha256(psw.encode('utf-8')).hexdigest() + "\n")
 
@@ -16,7 +16,7 @@ def login():  # Dataların bulunduğu dosyada bilgileri girilen kullanıcıyı a
     usr = input("Please enter your username:")
     psw = input("Please enter your password:")
 
-    with open('readme.txt', 'r') as f:
+    with open('Database.txt', 'r') as f:
         if (usr + "'s Password: %s" % hashlib.sha256(psw.encode('utf-8')).hexdigest()) in f.read():
             print("Access permitted.")
         else:
